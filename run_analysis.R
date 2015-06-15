@@ -139,7 +139,7 @@ rm(data_test,data_train)
 effColNames=c("SubjectId","ActivityName",features_list$featureName[columnsClasses=="numeric"])
 
 #write resulting tidy data set
-write.table(tidy_data,"tidy-UCI-HAR-data.csv",row.names=F,col.names=effColNames,sep=",")
+write.table(tidy_data,"tidy-UCI-HAR-data.txt",row.names=F,col.names=effColNames,sep=",")
 
 #As a second task in course project we need to create a second, 
 # independent tidy data set with the average of each variable for 
@@ -155,5 +155,5 @@ tidy_data_means<-tidy_data_means[order(tidy_data_means$SubjectId,tidy_data_means
 rownames(tidy_data_means) <- NULL
 
 #write resulting tidy aggregates data
-write.table(tidy_data_means,"tidy-UCI-HAR-data-means.csv",row.names=F,col.names=effColNames,sep=",")
+write.table(tidy_data_means,"tidy-UCI-HAR-data-means.txt",row.names=F,col.names=effColNames,sep=",")
 
