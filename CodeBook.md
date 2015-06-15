@@ -29,8 +29,8 @@ source("run_analysis.R")
 ```
 Your results are in
 ```r
-tidy-UCI-HAR-data.csv
-tidy-UCI-HAR-data-means.csv
+tidy-UCI-HAR-data.txt
+tidy-UCI-HAR-data-means.txt
 ```
 
 ###Explained version
@@ -107,9 +107,9 @@ Another challenge that should be addressed: data which should be included into r
 And last but not the least, resulting tidy data set should contain descriptive column names and descriptive activity names for each experiment.
 
 Detailed description of how all these challenged were addressed you can found in the explained comments in the `run_analysis.R` script.
-As a result of all necessary manipulations `run_analysis.R` script creates in working dir `tidy-UCI-HAR-data.csv` which contains self-describing `SubjectId` column, `ActivityName` column, 33 columns with -mean, and 33 columns with -std values, named exactly as specified in `features.txt` file (some examples: `tBodyAcc-mean()-X`,`tBodyAcc-std()-Y`,`tGravityAcc-mean()-Z`, and so on).
-Resulting `tidy-UCI-HAR-data.csv` is included in this repository.
-`tidy-UCI-HAR-data.csv` contains 10299 rows (2947 from test dataset plus 7352 from train dataset) and 68 columns (1 subectId, 1 ActivityName,33 -mean columns, 33 -std columns)
+As a result of all necessary manipulations `run_analysis.R` script creates in working dir `tidy-UCI-HAR-data.txt` which contains self-describing `SubjectId` column, `ActivityName` column, 33 columns with -mean, and 33 columns with -std values, named exactly as specified in `features.txt` file (some examples: `tBodyAcc-mean()-X`,`tBodyAcc-std()-Y`,`tGravityAcc-mean()-Z`, and so on).
+Resulting `tidy-UCI-HAR-data.txt` is included in this repository.
+`tidy-UCI-HAR-data.txt` contains 10299 rows (2947 from test dataset plus 7352 from train dataset) and 68 columns (1 subectId, 1 ActivityName,33 -mean columns, 33 -std columns)
 
 ####Steps need to be made to obtain tidy data (secondary task)
 
@@ -121,9 +121,9 @@ So we need to summarize data(by calculating the mean) for each combination of Su
 ```r
 tidy_data_means<-aggregate(tidy_data[,3:68], by = tidy_data[,1:2], FUN=mean)
 ```
-All the code necessary is already included into `run_analysis.R` script. And as a result `tidy-UCI-HAR-data-means.csv' is created which contains all aggregates (means) for all measurements for all combinations of Subject and Activity.
+All the code necessary is already included into `run_analysis.R` script. And as a result `tidy-UCI-HAR-data-means.txt' is created which contains all aggregates (means) for all measurements for all combinations of Subject and Activity.
 
-Note: There are only 40 rows in `tidy-UCI-HAR-data-means.csv` because for one subject initial data mostly contains data related to only one activity type. Some subject have data about 2 different activity types, but there are no subjects with data related to 3 or more activity types. `tidy-UCI-HAR-data-means.csv' contains the same 68 columns (1 subectId, 1 ActivityName,33 -mean columns, 33 -std columns)
+Note: There are only 40 rows in `tidy-UCI-HAR-data-means.txt` because for one subject initial data mostly contains data related to only one activity type. Some subject have data about 2 different activity types, but there are no subjects with data related to 3 or more activity types. `tidy-UCI-HAR-data-means.txt' contains the same 68 columns (1 subectId, 1 ActivityName,33 -mean columns, 33 -std columns)
 
 
 
